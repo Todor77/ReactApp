@@ -17,13 +17,6 @@ task bundle(type: YarnTask) {
 
 }
 
-task yarnBuild(type: YarnTask, dependsOn: [yarn_install]) {
-  inputs.file 'gulpfile.js'
-  inputs.dir project.projectDir
-  outputs.dir = "/dist"
-  args = ['run', 'build']
-}
-
 task start(type: YarnTask) {
   args = ['start']
 }
