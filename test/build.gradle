@@ -1,0 +1,32 @@
+plugins {
+  id "com.moowork.node" version "1.3.1"
+}
+
+apply plugin: 'base'
+version '0.0.1'
+
+buildDir = 'dist'
+
+node {
+  version = '8.10.0'
+  download = true
+}
+
+
+task bundle(type: YarnTask) {
+
+}
+
+task yarnBuild(type: YarnTask, dependsOn: [yarn_install]) {
+  inputs.file 'gulpfile.js'
+  inputs.dir project.projectDir
+  outputs.dir = "/dist"
+  args = ['run', 'build']
+}
+
+task start(type: YarnTask) {
+  args = ['start']
+}
+
+bundle.dependsOn(yarn_install)
+assemble.dependsOn(bundle)
