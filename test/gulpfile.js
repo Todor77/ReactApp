@@ -1,6 +1,6 @@
-var gulpfile = require('gulpfile');
+const gulpfile = require('gulpfile');
 
-var path = {
-    HTML: 'public/index.html',
-    JS: ''
-};
+
+const {src, dest, series, parallel} = require('gulp');
+
+const des
