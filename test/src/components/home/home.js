@@ -5,7 +5,7 @@ const home = () => {
         <div>
             <h1>Home</h1>
 
-            <a href="/about"> <button>Weiter</button></a>
+            <a href="/about"> <button className="btn-primary">Weiter</button></a>
         </div>
     )
 };

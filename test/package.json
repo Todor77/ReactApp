@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "node_modules/gulp/bin/gulp.js"
+    "build": "node_modules/gulp/bin/gulp.js",
+    "start": "react-scripts start"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -15,12 +16,28 @@
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-react": "^4.0.0",
-    "gulp-babel": "^8.0.0"
+    "gulp-babel": "^8.0.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "react-bootstrap": "^1.0.0-beta.12"
   },
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

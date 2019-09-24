@@ -6,8 +6,8 @@ class About extends React.Component{
             <div>
                 <h1>About Page</h1>
 
-                <a href="/"> <button >Züruck</button></a>
-                <a href="/contact"> <button>Weiter</button></a>
+                <a href="/"><button >Züruck </button> </a>
+                <a href="/contact"><button>Weiter</button></a>
             </div>
         )
     }

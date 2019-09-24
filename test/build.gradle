@@ -16,7 +16,7 @@ task bundle(type: YarnTask) {
 
 }
 
-task yarnBuild(type: YarnTask, dependsOn: [yarn_install]) {
+task reactBuild(type: YarnTask, dependsOn: [yarn_install]) {
   inputs.file 'gulpfile.js'
   inputs.dir project.projectDir
   outputs.dir jsBuildDir
@@ -28,5 +28,5 @@ task start(type: YarnTask) {
 }
 
 bundle.dependsOn(yarn_install)
-build.dependsOn(yarnBuild)
+build.dependsOn(reactBuild)
 assemble.dependsOn(bundle)
