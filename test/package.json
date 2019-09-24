@@ -1,26 +1,23 @@
 {
-  "name": "calculator",
+  "name": "react-with-gulp",
   "version": "0.1.0",
   "license": "MIT",
-  "homepage": "http://ahfarmer.github.io/calculator",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "build": "node_modules/gulp/bin/gulp.js"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "gh-pages": "^2.0.1",
-    "prettier": "^1.17.1",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-react": "^4.0.0"
+    "gulp-react": "^4.0.0",
+    "gulp-babel": "^8.0.0"
   },
   "dependencies": {
-    "big.js": "^5.2.2",
-    "github-fork-ribbon-css": "^0.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1"

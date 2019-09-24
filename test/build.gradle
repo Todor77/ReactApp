@@ -5,13 +5,12 @@ plugins {
 apply plugin: 'base'
 version '0.0.1'
 
-buildDir = 'dist'
-
 node {
   version = '8.10.0'
   download = true
 }
 
+def jsBuildDir = project.buildDir.absolutePath +'/dist/'
 
 task bundle(type: YarnTask) {
 
@@ -20,7 +19,11 @@ task bundle(type: YarnTask) {
 task yarnBuild(type: YarnTask, dependsOn: [yarn_install]) {
   inputs.file 'gulpfile.js'
   inputs.dir project.projectDir
+<<<<<<< Updated upstream
   outputs.dir = "/dist"
+=======
+  outputs.dir jsBuildDir
+>>>>>>> Stashed changes
   args = ['run', 'build']
 }
 
@@ -29,4 +32,5 @@ task start(type: YarnTask) {
 }
 
 bundle.dependsOn(yarn_install)
+build.dependsOn(yarnBuild)
 assemble.dependsOn(bundle)
