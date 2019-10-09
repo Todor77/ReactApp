@@ -61676,7 +61676,7 @@ var _reactRouterDom = require("react-router-dom");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var home = function home() {
-  return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Home"), _react.default.createElement("hr", null), _react.default.createElement(_reactRouterDom.Link, {
+  return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Home Test 1"), _react.default.createElement("hr", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/about"
   }, _react.default.createElement("button", {
     className: "btn-primary"

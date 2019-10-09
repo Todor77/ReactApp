@@ -5,16 +5,11 @@ const gulp = require('gulp'),
     browserify = require('browserify'),
     del = require('del');
 
-
 const {dest, parallel, series} = require('gulp');
-const destinationBaseDir = 'dist/';
 
-
-const destinationDirJS = destinationBaseDir + '/js';
-
-var path = {
+const path = {
     HTML: 'src/index.html',
-    ALL: ['src/components/*.js', 'src/components/**/*.js', 'src/index.html'],
+    ALL: ['src/**/**', 'public/**'],
     JS: ['src/components/*.js', 'src/components/**/*.js'],
     CSS: ['src/components/app/App.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css'],
     MINIFIED_OUT: 'build.min.js',
@@ -34,7 +29,7 @@ gulp.task('transpileReact', function babelTranspileReact() {
 
 gulp.task('buildHtml', function buildHtml() {
   return gulp.src('public/index.html')
-      .pipe(gulp.dest(destinationBaseDir))
+      .pipe(gulp.dest(path.DEST))
 });
 
 gulp.task('css', function () {
@@ -42,18 +37,24 @@ gulp.task('css', function () {
         .pipe(dest(path.DEST_CSS))
 });
 
-gulp.task('server', function () {
+gulp.task('server', function server() {
     browserSync({
         server: {
             baseDir: './dist'
-        }
+        },
+        reloadDelay: 10 // you need for first time page call, app.js to load properly
     })
 });
 
-const build = parallel(['transpileReact','css','buildHtml', 'server']);
+gulp.task('watch', function watch() {
+   return gulp.watch('src/components/**/**', gulp.series(['transpileReact', browserSync.reload]))
+});
+
+
+const build = parallel(['transpileReact','css','buildHtml','watch', 'server']);
 
 function clean() {
-    return del(['build/dist'], {force: true});
+    return del(['dist/'], {force: true});
 }
 
 exports.build = build;
