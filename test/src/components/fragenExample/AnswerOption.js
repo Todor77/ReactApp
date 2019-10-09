@@ -5,16 +5,12 @@ import PropTypes from 'prop-types'
 function AnswerOption(props) {
     return (
         <li className="answerOption">
-            <input data-bla="test"
+            <input
                 type="radio"
-                className="radioCustomButton"
-                name="radioGroup"
-                data-abswerType={props.answerTypes}
-                data-answer={props.answer}
-                checked={props.answerType === props.answer}
-                id={props.answerType}
-                value={props.answerType}
-                disabled={props.answer}
+                data-selectedAnswer={props.selectedAnswer}
+                data-answerOptionsId={props.answerOptionsId}
+                checked={props.answerOptionsId === props.selectedAnswer}
+                value={props.answerOptionsId}
                 onChange={props.onAnswerSelected}
             />
 
@@ -27,10 +23,11 @@ function AnswerOption(props) {
 }
 
 AnswerOption.propTypes = {
-    answerType: PropTypes.string.isRequired,
+    answerOptionsId: PropTypes.string.isRequired,
     answerContent: PropTypes.string.isRequired,
     answer: PropTypes.string.isRequired,
-    onAnswerSelected: PropTypes.string.isRequired,
+    selectedAnswer: PropTypes.string.isRequired,
+    onAnswerSelected: PropTypes.func.isRequired,
 
 };
 

@@ -14,17 +14,17 @@ class Fragen extends React.Component {
                         showPrev : false,
                         showNext : true,
                         isChecked: true,
-                           answerOptions: [],
-                           answer: '',
-                           counter: 0,
-                           questionId: 1,
-                           question: '',
-                           answersCount: {
-                               Stark: 0,
-                               Lannister: 0,
-                               Targaryen: 0
-                           },
-                           result: ''
+                       answerOptions: [],
+                       answer: '',
+                       counter: 0,
+                       questionId: 1,
+                       question: '',
+                       answersCount: {
+                           Stark: 0,
+                           Lannister: 0,
+                           Targaryen: 0
+                       },
+                       result: '',
                };
             this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
         }
@@ -50,19 +50,20 @@ class Fragen extends React.Component {
         };
 
         handleAnswerSelected(event) {
-            this.setAnswer(event.currentTarget.value);
+            this.setAnswer(event.target.value);
         }
 
         setAnswer(answer) {
-            this.setState({
-                answer: answer,
-            })
+            this.state.answerOptions[this.state.index] = answer;
+            this.forceUpdate();
         }
 
         render() {
                 const frage = fragen[this.state.index];
                 const isVisiblePrev = this.state.showPrev;
                 const isVisibleNext = this.state.showNext;
+                const selectedAnswer = this.state.answerOptions[this.state.index];
+                const func = this.handleAnswerSelected;
                 return (
                     <div>
                             <h4>
@@ -80,9 +81,11 @@ class Fragen extends React.Component {
                             {frage.answers.map(function (answer) {
                                 return <div>
                                         <AnswerOption
+                                            selectedAnswer={selectedAnswer}
                                             frageId={frage.id}
                                             answerOptionsId={answer.id}
-                                            answerContent={answer.text}/>
+                                            answerContent={answer.text}
+                                            onAnswerSelected={func}/>
                                         <br/>
                                 </div>
                             })}

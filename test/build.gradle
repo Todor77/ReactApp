@@ -19,12 +19,15 @@ task bundle(type: YarnTask) {
 task reactBuild(type: YarnTask, dependsOn: [yarn_install]) {
   inputs.file 'gulpfile.js'
   inputs.dir project.projectDir
-  outputs.dir jsBuildDir
   args = ['run', 'build']
 }
 
 task start(type: YarnTask) {
   args = ['start']
+}
+
+task startGulp(type: YarnTask, dependsOn: [yarn_install]) {
+  args = ['startGulp']
 }
 
 bundle.dependsOn(yarn_install)
