@@ -1,8 +1,5 @@
 import React from 'react'
-
 import fragen from '../../JSONData'
-import questions from "../../JSONData";
-
 
 class Fragen extends React.Component {
         constructor(props) {
@@ -56,14 +53,9 @@ class Fragen extends React.Component {
                             <p><em>Q{this.state.index+1}</em>: <span>{frage.question}</span></p>
                             {frage.answers.map((a) => <div>
                                                     <input
+                                                           key={a.id}
                                                            type="radio"
                                                            defaultValue={a.id}
-                                                           data-index={this.state.index}
-                                                           data-aId={a.id}
-                                                           data-whichquestionindex={this.state.index}
-                                                           data-test={a.id}
-                                                           data-frageId={this.props.frageId}
-                                                           data-answerOptionsId={this.props.answerOptionsId}
                                                            checked={this.state.answers[this.props.frageId] === this.props.answerOptionsId}
                                                            name={frage.name}
                                                            onChange={this.props.logValue}/> {a.text}

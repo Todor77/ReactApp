@@ -1,7 +1,6 @@
 import React from 'react'
 
 import fragen from '../../JSONData'
-import fragenA from '../../JSONDataA'
 import update from 'react-addons-update';
 
 import QuestionQuiz from "./QuestionQuiz"
@@ -116,6 +115,7 @@ class Fragen extends React.Component {
                 return (
                     <div>
                         <QuestionQuiz
+                            key={this.state.questionId}
                             answer={this.state.answer}
                             answerOptions={this.state.answerOptions}
                             questionId={this.state.questionId}

@@ -1,10 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import fragen from '../../JSONData'
 import AnswerOption from "./AnswerOption";
-import Quiz from "./Quiz";
-import quizQuestions from "../../JSONDataA";
 
 class Fragen extends React.Component {
         constructor(props) {
@@ -19,12 +16,6 @@ class Fragen extends React.Component {
                        counter: 0,
                        questionId: 1,
                        question: '',
-                       answersCount: {
-                           Stark: 0,
-                           Lannister: 0,
-                           Targaryen: 0
-                       },
-                       result: '',
                };
             this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
         }
@@ -66,31 +57,23 @@ class Fragen extends React.Component {
                 const func = this.handleAnswerSelected;
                 return (
                     <div>
-                            <h4>
-                                {frage.name}
-                            </h4>
                         <hr/>
-                            <h1>{frage.question}</h1>
+                        <h1>{frage.question}</h1>
                         <br/>
 
                         <div>
                             <hr/>
-                        <h2>Answers</h2>
+                            <h2>Answers</h2>
 
-                        <div>
                             {frage.answers.map(function (answer) {
-                                return <div>
-                                        <AnswerOption
+                                return <AnswerOption
+                                            key={answer.id}
                                             selectedAnswer={selectedAnswer}
                                             frageId={frage.id}
                                             answerOptionsId={answer.id}
                                             answerContent={answer.text}
                                             onAnswerSelected={func}/>
-                                        <br/>
-                                </div>
                             })}
-                        </div>
-
 
                         </div>
                             <div>

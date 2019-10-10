@@ -21,7 +21,11 @@ const path = {
 
 gulp.task('transpileReact', function babelTranspileReact() {
     return browserify('src/index.js')
-        .transform(babelify)
+        .transform(babelify, {
+            global: false,
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            ignore: ['node_modules/']
+        })
         .bundle()
         .pipe(source('App.js'))
         .pipe(dest(path.DEST_SRC))
@@ -42,7 +46,7 @@ gulp.task('server', function server() {
         server: {
             baseDir: './dist'
         },
-        reloadDelay: 10 // you need for first time page call, app.js to load properly
+        watch: true,
     })
 });
 

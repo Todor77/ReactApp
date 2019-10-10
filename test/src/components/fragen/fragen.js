@@ -64,6 +64,7 @@ class Fragen extends React.Component {
                         <div>
                             <ul> {frage.answers.map(function (answer) {
                                 return <AnswerOption
+                                                key={answer.id}
                                                 answerOptionsId={answer.id}
                                                 answerContent={answer.text}
                                                 selectedAnswer={selectedAnswer}

@@ -3,7 +3,7 @@ import items from '../../../JSONData'
 
 function item({match}) {
 
-    const item = items.find(({ id }) => id === match.params.id)
+    const item = items.find(({ id }) => id === match.params.id);
 
     return (
         <div>

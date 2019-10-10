@@ -9,15 +9,13 @@ const navigation = () => {
                 <Navbar.Brand href="/">ReactApp</Navbar.Brand>
                 <Nav className="mr-auto">
 
-                    <Nav.Link><NavLink to="/">Home</NavLink></Nav.Link>
-                    <Nav.Link><NavLink to="/about">About</NavLink></Nav.Link>
-                    <Nav.Link><NavLink to="/fragen">Fragen</NavLink></Nav.Link>
-                    <Nav.Link><NavLink to="/frageExample">FragenExample</NavLink></Nav.Link>
-                    <Nav.Link><NavLink to="/fragentest">FragenTest</NavLink></Nav.Link>
-                    <Nav.Link><NavLink to="/fragenmytest">FragenMyTest</NavLink></Nav.Link>
-
-
-                    <Nav.Link><NavLink to="/contact">Contact</NavLink></Nav.Link>
+                    <NavLink to="/"  className="nav-link">Home</NavLink>
+                    <NavLink to="/about" className="nav-link">About</NavLink>
+                    <NavLink to="/fragen" className="nav-link">Fragen</NavLink>
+                    <NavLink to="/frageExample" className="nav-link">FragenExample</NavLink>
+                    <NavLink to="/fragentest" className="nav-link">FragenTest</NavLink>
+                    <NavLink to="/fragenmytest" className="nav-link">FragenMyTest</NavLink>
+                    <NavLink to="/contact" className="nav-link">Contact</NavLink>
                 </Nav>
             </Navbar>
 

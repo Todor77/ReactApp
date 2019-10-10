@@ -12,7 +12,7 @@ function QuestionQuiz(props) {
                 <ul>
                     {props.answerOptions.map(key => {
                         return  <AnswerOption
-                            key={key.content}
+                            key={key.id}
                             answerContent={key.text}
                             answerType={key.id}
                             answer={props.answer}
@@ -39,9 +39,6 @@ QuestionQuiz.propTypes = {
     questionId: PropTypes.number.isRequired,
     questionTotal: PropTypes.number.isRequired,
     onAnswerSelected: PropTypes.func.isRequired
-
-
-
 };
 
 export default QuestionQuiz;
