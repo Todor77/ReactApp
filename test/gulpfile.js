@@ -44,7 +44,7 @@ gulp.task('css', function () {
 gulp.task('server', function server() {
     browserSync({
         server: {
-            baseDir: './dist'
+            baseDir: './dist',
         },
         watch: true,
     })
@@ -55,7 +55,7 @@ gulp.task('watch', function watch() {
 });
 
 
-const build = parallel(['transpileReact','css','buildHtml','watch', 'server']);
+const build = parallel(['transpileReact','css','buildHtml', 'watch', 'server']);
 
 function clean() {
     return del(['dist/'], {force: true});

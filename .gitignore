@@ -6,8 +6,8 @@ build/
 !**/src/test/**
 node_modules/
 test/node_modules/
-test/build
-test/.gradle
+test/build/
+test/.gradle/
 
 ### STS ###
 .apt_generated

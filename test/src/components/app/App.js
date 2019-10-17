@@ -7,7 +7,7 @@ import Fragen from "../fragen/fragen"
 import Test from "../fragenExample/fragen";
 import FragenTest from "../fragenTest/fragen";
 import FragenMyTest from "../fragenMyTest/fragen";
-
+import '@babel/polyfill';
 
 
 import Footer from '../footer/footer'
@@ -15,7 +15,27 @@ import Footer from '../footer/footer'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
+
+    state = {
+        isLoading: true,
+        groups: []
+    };
+
+    async componentDidMount() {
+        const response = await fetch('http://localhost:8080/api/groups', {
+        });
+        const body = await response.json();
+
+        this.setState({groups:body, isLoading: false});
+    }
+
     render() {
+
+        const {groups, isLoading} = this.state;
+
+        if(isLoading){
+            return <p>Loading ...</p>;
+        }
         return (
             <>
                 <div style={{width:1000, margin: '0 auto'}}>
@@ -38,6 +58,15 @@ class App extends React.Component {
 
                 </div>
 
+                <br/>
+                <div>
+                    <h2>JUG List</h2>
+                    {groups.map(group =>
+                        <div key={group.id}>
+                            {group.name}
+                        </div>
+                    )}
+                </div>
 
                 <Footer/>
             </>
